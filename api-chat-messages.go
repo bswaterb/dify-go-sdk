@@ -39,7 +39,7 @@ func PrepareChatPayload(payload map[string]interface{}) (string, error) {
 	return string(jsonData), nil
 }
 
-func (dc *DifyClient) ChatMessages(inputs string, conversation_id string, files []any) (result ChatMessagesResponse, err error) {
+func (dc *DifyClient) ChatMessages(query string, inputs string, conversation_id string, files []any) (result ChatMessagesResponse, err error) {
 	var payload ChatMessagesPayload
 
 	if len(inputs) == 0 {
@@ -53,6 +53,7 @@ func (dc *DifyClient) ChatMessages(inputs string, conversation_id string, files 
 		payload.Inputs = tryDecode
 	}
 
+	payload.Query = query
 	payload.ResponseMode = RESPONSE_MODE_BLOCKING
 	payload.User = dc.User
 
