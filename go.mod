@@ -1,3 +1,3 @@
-module github.com/soulteary/dify-go-sdk
+module github.com/bswaterb/dify-go-sdk
 
-go 1.18.0
+go 1.20.0
